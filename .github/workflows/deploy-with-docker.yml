@@ -19,7 +19,7 @@ jobs:
       - name: build and push docker
         working-directory: my-node-app
         run: |
-          docker build -t registry.digitalocean.com/takhir-registry/my-node-app:${{ github.sha }}.
+          docker build -t registry.digitalocean.com/takhir-registry/my-node-app:${{ github.sha }} .
           docker login registry.digitalocean.com -u takhir.ismailoff@gmail.com -p ${{ secrets.REGISTRY_TOKEN }}
           docker push registry.digitalocean.com/takhir-registry/my-node-app:${{ github.sha }}
           
