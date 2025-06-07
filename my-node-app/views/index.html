@@ -1,18 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Node Web App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Web App</title>
     <style>
+        /* Reset & base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: #fff;
+            padding: 1.5rem 2rem;
             text-align: center;
-            padding: 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: #111827;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-<h1>Hello from Node.js!</h1>
-<p>This is a static HTML page served by Express.</p>
+
+<header>
+    <h1>Welcome to Pro Web App</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <div class="card">
+        <h2>About This App</h2>
+        <p>This is a professional-grade web template using semantic HTML and internal CSS. Customize it to suit your project's needs.</p>
+    </div>
+
+    <div class="card">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Responsive layout</li>
+            <li>Clean, modern UI</li>
+            <li>Easy to scale and maintain</li>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Pro Web App. All rights reserved.
+</footer>
+
 </body>
 </html>
