@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/django-app-deploy.yml'
-      - 'django_app/**'
   workflow_dispatch:
 
 jobs:
