@@ -39,4 +39,3 @@ jobs:
             python3 manage.py collectstatic --noinput
             python3 manage.py migrate
             sudo systemctl restart django-app
-            
