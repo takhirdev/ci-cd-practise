@@ -3,7 +3,10 @@ name: deploy app to server
 on:
   push:
     branches:
-      - dev
+      - main
+    paths:
+      - '.github/workflows/deploy-django.yml'
+      - 'django_app/**'
   workflow_dispatch:
 
 jobs:
@@ -14,10 +17,6 @@ jobs:
       - name: git clone
         uses: actions/checkout@v4
 
-      - name: npm install packages
-        working-directory: ./my-node-app
-        run: npm ci
-
       - name: copy files via SSH
         uses: appleboy/scp-action@v1
         with:
@@ -25,8 +24,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "./my-node-app"
-          target: /opt/ci-cd-practise/
+          source: "./django_app"
+          target: /opt/
 
       - name: Execute remote SSH commands using key
         uses: appleboy/ssh-action@v1
@@ -35,4 +34,11 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: sudo systemctl restart my-node-app
+          script: |
+            cd /opt/django_app
+            python3 -m venv myvenv
+            source myvenv/bin/activate
+            pip3 install -r requirements.text
+            python3 manage.py collectstatic --noinput
+            python3 manage.py migrate
+            sudo systemctl restart django-app
