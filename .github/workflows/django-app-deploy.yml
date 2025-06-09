@@ -35,7 +35,7 @@ jobs:
             cd /opt/django_app
             python3 -m venv myvenv
             source myvenv/bin/activate
-            pip3 install -r requirements.text
+            pip3 install -r requirements.txt
             python3 manage.py collectstatic --noinput
             python3 manage.py migrate
             sudo systemctl restart django-app
