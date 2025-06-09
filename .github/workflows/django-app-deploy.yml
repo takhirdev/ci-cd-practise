@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/deploy-django.yml'
+      - '.github/workflows/django-app-deploy.yml'
       - 'django_app/**'
   workflow_dispatch:
 
@@ -42,3 +42,4 @@ jobs:
             python3 manage.py collectstatic --noinput
             python3 manage.py migrate
             sudo systemctl restart django-app
+            
